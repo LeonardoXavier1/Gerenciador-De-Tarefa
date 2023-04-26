@@ -1,0 +1,10 @@
+body{
+    font-family: 'Ubuntu', sans-serif;  
+    color: aliceblue;
+    background-color: #211c3a;
+}
+
+footer a{
+    text-decoration: none;
+    color: aliceblue;
+}
