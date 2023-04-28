@@ -9,21 +9,19 @@
 
 body{
     font-family: 'Ubuntu', sans-serif;  
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     background-color: #211c3a;
 }
 
-footer a{
-    text-decoration: none;
-    color: aliceblue;
-}
-
 .container{
-
-    max-width: 450px;
+    background-color: #60588636;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
     margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0;
     padding: 12px;
 }
 
@@ -49,5 +47,159 @@ footer a{
     display: flex;
     justify-content: center;
     flex-direction: column;
+
+}
+
+.form label{
+
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+}
+
+.form input {
+
+    width: 100%;
+    height: 32px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 12px;
+    border: 1px solid #999;
+    border-radius: 15px;
+}
+
+
+
+.form input:focus{
+
+
+    background: #3f328879;
+    animation: circling 1.5s linear infinite;
+
+
+}
+
+.form input{
+    background: #3f328879;
+
+}
+@keyframes circling{
+    100%{ filter: hue-rotate(360deg);}
+    
+}
+
+.form button{
+
+    width: 100%;
+    background: #3f328879;
+    height: 32px;
+    border: none;
+    border: 1px solid #999;
+    border-radius: 15px;
+    color: #fff;
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+}
+.form button:hover{
+
+    background: #3f328879;
+    animation: circling 1.5s linear infinite;
+
+
+}
+
+.btn-clear{
+
+    margin-top: 30px;
+    color: #fff;
+    background: #3f328879;
+    width: 100%;
+    height: 32px;
+    border: none;
+    border: 1px solid #999;
+    border-radius: 15px;
+    
+}
+
+.btn-clear:hover{
+
+    background: #3f328879;
+    animation: circling 1.5s linear infinite;
+}
+
+
+.separator{
+
+    background: #fdfdfd;
+    height: 2px;
+    border-radius: 5px;
+    background: #3f3288;
+    animation: circling 1.5s linear infinite;
+
+}
+
+.list-tasks{
+
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+}
+
+.list-tasks ul{
+
+    list-style: none;
+
+}
+
+.list-tasks ul li{
+
+    background:#18133379;
+    height: 31px;
+    border-radius: 4px;
+    color: #fdfdfd;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 12px;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    transition: background 0.9s;
+    
+}
+
+.list-tasks ul li:hover{
+
+    background:#3f328879;
+
+
+}
+
+footer a:hover{
+    color: #3f3288;
+    animation: circling 1.5s linear infinite;
+
+}
+footer a{
+    text-decoration: none;
+    color: rgb(243, 239, 239);
+
+
+}
+
+footer{
+
+    background: #3f328879   ;
+    border-radius: 4px;
+    padding: 12px;
+
+}
+
+footer p {
+
+    font-size: 12px;
 
 }
