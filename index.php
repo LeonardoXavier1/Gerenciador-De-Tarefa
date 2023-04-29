@@ -2,21 +2,31 @@
 
 session_start();
 
-if ( !isset($_SESSION['tasks'])){
+if ( empty($_SESSION['tasks'])){
         $_SESSION['tasks'] = array();
 }
-
 if ( isset($_GET['task_name'])){
-        array_push($_SESSION['tasks'], $_GET['task_name']);
-        unset($_GET['task_name']);
-
-}
+        if ($_GET['task_name'] != ""){
+            array_push($_SESSION['tasks'], $_GET['task_name']);
+            unset($_GET['task_name']);
+             header("Location: http://localhost:8100"); 
+            exit;
+        }
+        else {
+            $_SESSION['message'] = "Preencha o campo 'Nome da Tarefa'.";
+        }
+    }
+    
 
 if ( isset($_GET['clear']) ) {
         unset($_SESSION['tasks']);
-
+        unset($_GET['clear']);
 }
 
+if ( isset($_GET['key']) ) {
+        array_splice($_SESSION['tasks'], $_GET['key'],1);
+        unset($_GET['key']);
+}
 
 
 
@@ -41,10 +51,17 @@ if ( isset($_GET['clear']) ) {
 
                 <div class="form">
                       <form action="" method="get">
-                        <label for="task_name">Tarefa:<label>
+                        <label for="task_name">Tarefa:</label>
                         <input type="text" name="task_name" placeholder="Nome da Tarefa:">
                         <button type="submit">Cadastrar</button>
                       </form>
+                      <?php 
+                        if ( isset ($_SESSION['message']) ){
+                                echo "<p style='color:#fff';>" . $_SESSION['message'] . "</p>";
+                                unset($_SESSION['message']); 
+
+                        }
+                      ?>
                 </div>
 
                 <div class="separator">
@@ -56,7 +73,20 @@ if ( isset($_GET['clear']) ) {
                                         echo "<ul>";
 
                                         foreach ( $_SESSION['tasks'] as $key => $task ) { 
-                                                echo "<li>$task</li>";
+                                                echo "<li>
+                                                        <span>$task</span>
+                                                        <button type='button' class='bt-clear' onclick='deletar$key()'>Remover</button>        
+                                                        <script>
+                                                                function deletar$key(){
+                                                                        if ( confirm('Confirmar remoção?') ){
+                                                                                window.location = 'http://localhost:8100/?key=$key';
+                                                                        }
+                                                                        return false;
+                                                                }
+
+
+                                                        </script>
+                                                </li>";
 
                                         } 
 
@@ -69,8 +99,9 @@ if ( isset($_GET['clear']) ) {
                         </form>
                 </div>
 
-                <footer><p  class ="escritas" > Site produzido por <a  href =" https://github.com/LeonardoXavier1 " target =" _blank "> Leonardo Matheus Xavier Vieira </a> 🔥 </p>
-</footer>
+                <footer>
+                        <p  class ="escritas" > Site produzido por <a  href =" https://github.com/LeonardoXavier1 " target =" _blank "> Leonardo Matheus Xavier Vieira </a> 🔥 </p>
+                </footer>
                 
                 
         </div>
