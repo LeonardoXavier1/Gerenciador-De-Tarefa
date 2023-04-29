@@ -109,6 +109,23 @@ body{
 
 
 }
+.bt-clear{
+
+    margin-left: 70%;
+    color: #fff;
+    background: #3f328879;
+    width: 100px;
+    height: 30px;
+    border: none;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+.bt-clear:hover{
+
+    background: #3f328879;
+    animation: circling 1.5s linear infinite;
+
+}
 
 .btn-clear{
 
